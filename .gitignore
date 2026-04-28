@@ -1,0 +1,8 @@
+# Временные файлы билда (генерируются и удаляются в workflow)
+*.lst
+*.txt
+mihomo.deb
+
+# Исключение: нужные .list файлы в папках
+!ru-bundle/*.list
+!other/*.list
