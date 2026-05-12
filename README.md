@@ -1,6 +1,6 @@
 # blgdrn-rule-sets
 
-Зеркало из 37 MRS rule-sets для Mihomo. Обновляется автоматически каждый день в 04:00 UTC.
+Зеркало из 38 MRS rule-sets для Mihomo. Обновляется автоматически каждый день в 04:00 UTC.
 
 ## Файлы (`ruleset/`)
 
@@ -17,6 +17,7 @@
 | discord-ip.mrs | legiz-ru/mihomo-rule-sets |
 | github-geosite.mrs | MetaCubeX/meta-rules-dat |
 | google-deepmind-domain.mrs | MetaCubeX/meta-rules-dat |
+| google.mrs | MetaCubeX/meta-rules-dat |
 | googlemeet-ip.mrs | ssc.magickvn.com |
 | inline-blocked-ips.mrs | ssc.magickvn.com |
 | lookup-domains.mrs | ssc.magickvn.com |

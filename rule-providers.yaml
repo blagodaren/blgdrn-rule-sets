@@ -92,7 +92,7 @@ rule-providers:
     behavior: domain
     type: http
     format: mrs
-    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
+    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/google.mrs"
     interval: 86400
     path: ./ruleset/google.mrs
 

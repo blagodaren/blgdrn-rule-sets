@@ -36,6 +36,7 @@ jobs:
           dl "$BASE_GS/discord.mrs"           discord-domain.mrs
           dl "$BASE_GS/github.mrs"            github-geosite.mrs
           dl "$BASE_GS/google-deepmind.mrs"   google-deepmind-domain.mrs
+          dl "$BASE_GS/google.mrs"            google.mrs
           dl "$BASE_GS/meta.mrs"              meta-domain.mrs
           dl "$BASE_GS/netflix.mrs"           netflix-domain.mrs
           dl "$BASE_GS/reddit.mrs"            reddit-domain.mrs
@@ -106,7 +107,7 @@ jobs:
           ls -lh ruleset/
           echo ""
           count=$(ls ruleset/*.mrs 2>/dev/null | wc -l)
-          echo "Total: ${count} / 37 MRS files"
+          echo "Total: ${count} / 38 MRS files"
           [ "$count" -ge 30 ] || { echo "Too few files (${count}), aborting commit"; exit 1; }
 
       # ── Коммит ──────────────────────────────────────────────────────────────
