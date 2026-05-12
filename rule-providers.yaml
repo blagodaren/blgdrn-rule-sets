@@ -88,6 +88,14 @@ rule-providers:
     interval: 86400
     path: ./ruleset/google-deepmind-domain.mrs
 
+  google@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/google.mrs"
+    interval: 86400
+    path: ./ruleset/google.mrs
+
   googlemeet@ipcidr:
     behavior: ipcidr
     type: http
