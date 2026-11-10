@@ -1,0 +1,14 @@
+# Legacy SSC encoded these strings as literal domains, NOT keyword rules.
+# Preserved for compatibility. Current config uses ru-inline-banned-keywords.yaml.
+domain-keyword,anidub
+domain-keyword,anilibria
+domain-keyword,anime-portal
+domain-keyword,animedub
+domain-keyword,animego
+domain-keyword,animelib
+domain-keyword,animeportal
+domain-keyword,ikianime
+domain-keyword,rezka
+domain-keyword,voidboost
+domain-keyword,yummy-anime
+domain-keyword,yummyanime

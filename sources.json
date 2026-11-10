@@ -1,0 +1,411 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "output": "ruleset/amazon-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/amazon.mrs"
+    },
+    {
+      "output": "ruleset/category-ai-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-%21cn.mrs"
+    },
+    {
+      "output": "ruleset/cloudflare-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cloudflare.mrs"
+    },
+    {
+      "output": "ruleset/discord-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/discord.mrs"
+    },
+    {
+      "output": "ruleset/github-geosite.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"
+    },
+    {
+      "output": "ruleset/google-deepmind-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-deepmind.mrs"
+    },
+    {
+      "output": "ruleset/google.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"
+    },
+    {
+      "output": "ruleset/meta-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/meta.mrs"
+    },
+    {
+      "output": "ruleset/netflix-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs"
+    },
+    {
+      "output": "ruleset/reddit-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/reddit.mrs"
+    },
+    {
+      "output": "ruleset/spotify-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs"
+    },
+    {
+      "output": "ruleset/telegram-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"
+    },
+    {
+      "output": "ruleset/twitch-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitch.mrs"
+    },
+    {
+      "output": "ruleset/youtube-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"
+    },
+    {
+      "output": "ruleset/netflix-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs"
+    },
+    {
+      "output": "ruleset/amazon-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/zxc-rv/zkeenip-rulesets/releases/latest/download/amazon@ipcidr.mrs"
+    },
+    {
+      "output": "ruleset/cloudflare-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/zxc-rv/zkeenip-rulesets/releases/latest/download/cloudflare@ipcidr.mrs"
+    },
+    {
+      "output": "ruleset/meta-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/zxc-rv/zkeenip-rulesets/releases/latest/download/meta@ipcidr.mrs"
+    },
+    {
+      "output": "ruleset/telegram-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/zxc-rv/zkeenip-rulesets/releases/latest/download/telegram@ipcidr.mrs"
+    },
+    {
+      "output": "ruleset/vodafone-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/zxc-rv/zkeenip-rulesets/releases/latest/download/vodafone@ipcidr.mrs"
+    },
+    {
+      "output": "ruleset/aws-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/aws-ip.list"
+    },
+    {
+      "output": "ruleset/battlefield-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/battlefield-ip.list"
+    },
+    {
+      "output": "ruleset/googlemeet-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/googlemeet-ip.list"
+    },
+    {
+      "output": "ruleset/inline-blocked-ips.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/inline-blocked-ips.list"
+    },
+    {
+      "output": "ruleset/lookup-domains.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/lookup-domains.list"
+    },
+    {
+      "output": "ruleset/music-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/music-domain.list"
+    },
+    {
+      "output": "ruleset/roblox-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/roblox-domain.list"
+    },
+    {
+      "output": "ruleset/roblox-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/roblox-ip.list"
+    },
+    {
+      "output": "ruleset/ru-inline-banned-domains.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/ru-inline-banned-domains.list"
+    },
+    {
+      "output": "ruleset/ru-inline-banned.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/ru-inline-banned.list",
+      "legacy_literal_domains": [
+        "domain-keyword,anidub",
+        "domain-keyword,anilibria",
+        "domain-keyword,anime-portal",
+        "domain-keyword,animedub",
+        "domain-keyword,animego",
+        "domain-keyword,animelib",
+        "domain-keyword,animeportal",
+        "domain-keyword,ikianime",
+        "domain-keyword,rezka",
+        "domain-keyword,voidboost",
+        "domain-keyword,yummy-anime",
+        "domain-keyword,yummyanime"
+      ]
+    },
+    {
+      "output": "ruleset/ru-inline-domains.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/ru-inline-domains.list"
+    },
+    {
+      "output": "ruleset/discord-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/discord-voice-ip-list.mrs"
+    },
+    {
+      "output": "ruleset/oisd-big-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/oisd/big.mrs"
+    },
+    {
+      "output": "ruleset/refilter-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/re-filter/domain-rule.mrs"
+    },
+    {
+      "output": "ruleset/torrent-trackers.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/legiz-ru/mihomo-rule-sets@main/other/torrent-trackers.mrs"
+    },
+    {
+      "output": "ruleset/torrent-websites.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main/other/torrent-websites.mrs"
+    },
+    {
+      "output": "ruleset/twitch-ads-domain.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/twitch-ads.mrs"
+    },
+    {
+      "output": "ruleset/winspy-geosite.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/hydraponique/roscomvpn-geosite/raw/master/release/mihomo/win-spy.mrs"
+    },
+    {
+      "output": "ruleset/geosite-private.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/private.mrs"
+    },
+    {
+      "output": "ruleset/geoip-private.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/mihomo/private.mrs"
+    },
+    {
+      "output": "ruleset/ads-allow-ru.yaml",
+      "behavior": "classical",
+      "format": "yaml",
+      "mode": "static",
+      "source": "sources/static/ads-allow-ru.yaml"
+    },
+    {
+      "output": "ruleset/whitelist.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/whitelist.mrs"
+    },
+    {
+      "output": "ruleset/win-spy.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/win-spy.mrs"
+    },
+    {
+      "output": "ruleset/ads.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/MiHomoer/MiHomo-Hagezi@release/HageziProPlus.mrs"
+    },
+    {
+      "output": "ruleset/category-ru.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/category-ru.mrs"
+    },
+    {
+      "output": "ruleset/torrent-domains.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/torrent.mrs"
+    },
+    {
+      "output": "ruleset/apple.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/apple.mrs"
+    },
+    {
+      "output": "ruleset/pinterest.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/pinterest.mrs"
+    },
+    {
+      "output": "ruleset/direct-ips.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geoip/release/mihomo/direct.mrs"
+    },
+    {
+      "output": "ruleset/ru-inline-banned-keywords.yaml",
+      "behavior": "classical",
+      "format": "yaml",
+      "mode": "static",
+      "source": "sources/static/ru-inline-banned-keywords.yaml"
+    },
+    {
+      "output": "ruleset/ai-domains.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/mihomo-ruleset/ai.mrs"
+    },
+    {
+      "output": "ruleset/telegram-extra-domains.yaml",
+      "behavior": "classical",
+      "format": "yaml",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/Davoyan/mihomo-rule-sets@main/domains/additional-telegram-domains.yaml"
+    },
+    {
+      "output": "ruleset/telegram-ips.yaml",
+      "behavior": "classical",
+      "format": "yaml",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/Davoyan/mihomo-rule-sets@main/domains/additional-telegram-ips.yaml"
+    },
+    {
+      "output": "ruleset/discord-blgdrn-ip.mrs",
+      "behavior": "ipcidr",
+      "format": "mrs",
+      "mode": "static",
+      "source": "sources/static/discord-blgdrn-ip.list"
+    },
+    {
+      "output": "ruleset/tiktok-domains.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/tiktok.mrs"
+    },
+    {
+      "output": "ruleset/category-porn.mrs",
+      "behavior": "domain",
+      "format": "mrs",
+      "mode": "mirror",
+      "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/refs/heads/meta/geo/geosite/category-porn.mrs"
+    }
+  ]
+}

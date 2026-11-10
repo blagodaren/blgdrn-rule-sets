@@ -1,46 +1,109 @@
 # blgdrn-rule-sets
 
-Зеркало из 38 MRS rule-sets для Mihomo. Обновляется автоматически каждый день в 04:00 UTC.
+Подключите [rule-providers.yaml](rule-providers.yaml), чтобы все **44 провайдера актуального конфига** загружались из этого репозитория.
 
-## Файлы (`ruleset/`)
+Здесь **56 артефактов** с учётом старых конфигов: **42 обновляемых зеркала** и **14 статичных списков**. Статичные — 12 списков SSC и 2 списка, ранее заданных inline. Форматы: 52 MRS и 4 YAML.
 
-| Файл | Источник |
-|------|---------|
-| amazon-domain.mrs | MetaCubeX/meta-rules-dat |
-| amazon-ip.mrs | zxc-rv/zkeenip-rulesets |
-| aws-ip.mrs | ssc.magickvn.com |
-| battlefield-ip.mrs | ssc.magickvn.com |
-| category-ai-domain.mrs | MetaCubeX/meta-rules-dat |
-| cloudflare-domain.mrs | MetaCubeX/meta-rules-dat |
-| cloudflare-ip.mrs | zxc-rv/zkeenip-rulesets |
-| discord-domain.mrs | MetaCubeX/meta-rules-dat |
-| discord-ip.mrs | legiz-ru/mihomo-rule-sets |
-| github-geosite.mrs | MetaCubeX/meta-rules-dat |
-| google-deepmind-domain.mrs | MetaCubeX/meta-rules-dat |
-| google.mrs | MetaCubeX/meta-rules-dat |
-| googlemeet-ip.mrs | ssc.magickvn.com |
-| inline-blocked-ips.mrs | ssc.magickvn.com |
-| lookup-domains.mrs | ssc.magickvn.com |
-| meta-domain.mrs | MetaCubeX/meta-rules-dat |
-| meta-ip.mrs | zxc-rv/zkeenip-rulesets |
-| music-domain.mrs | ssc.magickvn.com |
-| netflix-domain.mrs | MetaCubeX/meta-rules-dat |
-| netflix-ip.mrs | MetaCubeX/meta-rules-dat |
-| oisd-big-domain.mrs | legiz-ru/mihomo-rule-sets |
-| reddit-domain.mrs | MetaCubeX/meta-rules-dat |
-| refilter-domain.mrs | legiz-ru/mihomo-rule-sets |
-| roblox-domain.mrs | ssc.magickvn.com |
-| roblox-ip.mrs | ssc.magickvn.com |
-| ru-inline-banned-domains.mrs | ssc.magickvn.com |
-| ru-inline-banned.mrs | ssc.magickvn.com |
-| ru-inline-domains.mrs | ssc.magickvn.com |
-| spotify-domain.mrs | MetaCubeX/meta-rules-dat |
-| telegram-domain.mrs | MetaCubeX/meta-rules-dat |
-| telegram-ip.mrs | zxc-rv/zkeenip-rulesets |
-| torrent-trackers.mrs | legiz-ru/mihomo-rule-sets |
-| torrent-websites.mrs | legiz-ru/mihomo-rule-sets |
-| twitch-ads-domain.mrs | hydraponique/roscomvpn-geosite |
-| twitch-domain.mrs | MetaCubeX/meta-rules-dat |
-| vodafone-ip.mrs | zxc-rv/zkeenip-rulesets |
-| winspy-geosite.mrs | hydraponique/roscomvpn-geosite |
-| youtube-domain.mrs | MetaCubeX/meta-rules-dat |
+## Подключение к актуальному конфигу
+
+1. Установите зависимость скриптов:
+
+   ```sh
+   python -m pip install -r requirements.txt
+   ```
+
+2. Создайте новый конфиг из своего файла; оба личных файла храните вне репозитория:
+
+   ```sh
+   python scripts/migrate_config.py ../config.yaml ../config-repo.yaml
+   ```
+
+3. Загрузите `config-repo.yaml` в свой клиент Mihomo.
+
+Скрипт заменяет только `rule-providers`, проверяет остальные разделы и сохраняет исходный файл. Выходной файл должен быть новым. Скрипт рассчитан на актуальный конфиг с теми же 44 именами провайдеров.
+
+Ручной вариант: замените целиком раздел `rule-providers` содержимым [rule-providers.yaml](rule-providers.yaml). Порядок `rules`, настройки DNS и ссылки `RULE-SET` в `fake-ip-filter` сохраните.
+
+Полный личный конфиг, URL подписки и идентификаторы устройства в репозиторий не добавляйте.
+
+## Ручная правка через GitHub
+
+1. Откройте нужный файл в [sources/static](sources/static).
+2. Измените правила через кнопку редактирования GitHub.
+3. Сохраните изменение коммитом в `main`.
+4. Дождитесь успешной сборки во вкладке **Actions**.
+5. Обновите провайдер в своём клиенте, чтобы применить правку сразу.
+
+В `.list` хранится по одному доменному шаблону или CIDR на строку. Сохраняйте синтаксис соседних записей. Например, IP-сеть записывается как `203.0.113.0/24`, без префикса `IP-CIDR,`. Комментарии начинаются с `#`.
+
+В двух статичных YAML используется `payload` с полноценными classical-правилами:
+
+```yaml
+payload:
+  - DOMAIN,antibot.wildberries.ru
+  - DOMAIN-SUFFIX,flomni.com
+```
+
+Редактируемый источник находится в `sources/static/`; файлы в `ruleset/` создаёт сборка. Не правьте MRS вручную.
+
+## Что обновляется автоматически
+
+| Событие | Действие |
+| --- | --- |
+| Каждый день в 04:00 UTC / 07:00 по Москве | Обновление 42 зеркал и сборка статичных списков |
+| Изменение статичных источников в `main` | Сборка из файлов репозитория без обновления зеркал |
+| Ручной запуск workflow с `refresh` | Обновление зеркал и сборка |
+
+**SSC upstream отключён:** ни расписание, ни ручной `refresh` не скачивают списки с `ssc.magickvn.com`. Все 12 списков собираются из локальных `.list`, включая сохранённые списки для старых конфигов.
+
+Интервал загрузки в конфиге Mihomo сохранён: клиент получает с GitHub опубликованные ручные изменения. Обычно это раз в сутки; для `private-domains` и `private-ips` — раз в 30 дней. Немедленное применение запускается обновлением провайдера в клиенте.
+
+## Сборка и проверка локально
+
+Нужны Python 3.10+ и PyYAML. Команды запускаются из корня репозитория. Ниже пример для Windows; на Linux замените `.tools/mihomo.exe` на `.tools/mihomo`.
+
+1. Установите используемую сборкой версию **Mihomo v1.19.33**:
+
+   ```sh
+   python scripts/install_mihomo.py --directory .tools
+   ```
+
+2. Соберите артефакты из текущих источников репозитория:
+
+   ```sh
+   python scripts/manage_rules.py build --mihomo .tools/mihomo.exe
+   ```
+
+3. Проверьте каталог и собранные файлы:
+
+   ```sh
+   python scripts/manage_rules.py validate --mihomo .tools/mihomo.exe
+   ```
+
+Для обновления 42 зеркал запустите сборку с `--refresh`:
+
+```sh
+python scripts/manage_rules.py build --mihomo .tools/mihomo.exe --refresh
+```
+
+`--refresh` не меняет статичные источники SSC. При обычной ручной правке достаточно сборки и проверки.
+
+## Файлы и совместимость
+
+| Путь | Назначение |
+| --- | --- |
+| [sources.json](sources.json) | Каталог 56 артефактов: поведение, формат, источник и режим обновления |
+| [sources/static](sources/static) | 12 редактируемых SSC `.list` и 2 бывших inline `.yaml` |
+| [snapshots/ssc](snapshots/ssc) | Архив исходных SSC MRS; происхождение, время снимка и контрольные суммы — в `manifest.json` |
+| [ruleset](ruleset) | Готовые MRS/YAML для загрузки клиентами |
+| [rule-providers-legacy.yaml](rule-providers-legacy.yaml) | 38 провайдеров прежнего конфига с сохранёнными именами и путями |
+
+Для актуального конфига используйте `rule-providers.yaml`. Для старого — `rule-providers-legacy.yaml`. **Два фрагмента не объединяйте:** в них есть совпадающие имена.
+
+У `ru-inline-banned@domain` различается смысл: в актуальном фрагменте это `classical` YAML с 12 `DOMAIN-KEYWORD`, в старом — доменный MRS SSC. Оба варианта хранятся отдельно. Аналогично `discord-ip.mrs` остаётся обновляемым списком legiz, а `discord-blgdrn-ip.mrs` — статичным списком SSC.
+
+В архивном `ru-inline-banned.mrs` SSC закодировал строки `domain-keyword,...` как буквальные домены: они не выполняют поиск ключевых слов. Этот файл сохранён побайтно для совместимости. Валидатор разрешает его 12 исходных строк через `legacy_literal_domains` в каталоге. Для действующих keyword-правил редактируйте `sources/static/ru-inline-banned-keywords.yaml`.
+
+Снимок SSC получен **10 ноября 2026 года в 03:45 МСК**; все 12 оригиналов и SHA256 сохранены в архиве.
+
+Описание форматов и параметров: [официальная документация Mihomo](https://wiki.metacubex.one/en/config/rule-providers/).

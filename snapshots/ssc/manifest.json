@@ -1,0 +1,138 @@
+{
+  "snapshots": [
+    {
+      "output": "ruleset/aws-ip.mrs",
+      "source": "sources/static/aws-ip.list",
+      "archive": "snapshots/ssc/aws-ip.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/aws-ip.mrs",
+      "fetched_at": "2026-11-10T00:45:01.954539+00:00",
+      "sha256": "09b0a4a74efe3574aa4f68b1f1b1f0146bae48b7ed0943e9f3016a018b069f64",
+      "bytes": 5168,
+      "behavior": "ipcidr",
+      "decoded_rules": 1553
+    },
+    {
+      "output": "ruleset/battlefield-ip.mrs",
+      "source": "sources/static/battlefield-ip.list",
+      "archive": "snapshots/ssc/battlefield-ip.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/battlefield-ip.mrs",
+      "fetched_at": "2026-11-10T00:45:02.473630+00:00",
+      "sha256": "f0187d492efbd9de86d43edec4adbdc914b2180d355d7a3a439c81a4673563b7",
+      "bytes": 86,
+      "behavior": "ipcidr",
+      "decoded_rules": 4
+    },
+    {
+      "output": "ruleset/googlemeet-ip.mrs",
+      "source": "sources/static/googlemeet-ip.list",
+      "archive": "snapshots/ssc/googlemeet-ip.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/googlemeet-ip.mrs",
+      "fetched_at": "2026-11-10T00:45:03.009116+00:00",
+      "sha256": "f48e11ac5057338d1ab4986d38c02d3b78ff359899b86969cdab4669ef44f68f",
+      "bytes": 61,
+      "behavior": "ipcidr",
+      "decoded_rules": 3
+    },
+    {
+      "output": "ruleset/inline-blocked-ips.mrs",
+      "source": "sources/static/inline-blocked-ips.list",
+      "archive": "snapshots/ssc/inline-blocked-ips.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/inline-blocked-ips.mrs",
+      "fetched_at": "2026-11-10T00:45:03.522401+00:00",
+      "sha256": "f64c65df49735b3a8fde9fb66a9855612e4e0a9c80ebe3fee644cc1e2e98bba5",
+      "bytes": 259,
+      "behavior": "ipcidr",
+      "decoded_rules": 32
+    },
+    {
+      "output": "ruleset/lookup-domains.mrs",
+      "source": "sources/static/lookup-domains.list",
+      "archive": "snapshots/ssc/lookup-domains.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/lookup-domains.mrs",
+      "fetched_at": "2026-11-10T00:45:04.007953+00:00",
+      "sha256": "b42a3daadf5b5bc9866a0babb245cbb941986aa92713e04fc4c0555a518854b0",
+      "bytes": 133,
+      "behavior": "domain",
+      "decoded_rules": 9
+    },
+    {
+      "output": "ruleset/music-domain.mrs",
+      "source": "sources/static/music-domain.list",
+      "archive": "snapshots/ssc/music-domain.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/music.mrs",
+      "fetched_at": "2026-11-10T00:45:04.526523+00:00",
+      "sha256": "001f8d0d574da4797b94cc22acd5486e1839d6f744618fbcb89b30fb74d8f4e3",
+      "bytes": 358,
+      "behavior": "domain",
+      "decoded_rules": 21
+    },
+    {
+      "output": "ruleset/roblox-domain.mrs",
+      "source": "sources/static/roblox-domain.list",
+      "archive": "snapshots/ssc/roblox-domain.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/roblox-domains.mrs",
+      "fetched_at": "2026-11-10T00:45:05.031937+00:00",
+      "sha256": "7391fa5d943c56eed22649a629e2abb5357368d11f86590afffc1c2acf5273fa",
+      "bytes": 690,
+      "behavior": "domain",
+      "decoded_rules": 75
+    },
+    {
+      "output": "ruleset/roblox-ip.mrs",
+      "source": "sources/static/roblox-ip.list",
+      "archive": "snapshots/ssc/roblox-ip.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/roblox-ip.mrs",
+      "fetched_at": "2026-11-10T00:45:05.569424+00:00",
+      "sha256": "6ef65b5dc414a10fa015f042ba86d72924c7ac1f7dfcfe435c96de677e66508c",
+      "bytes": 119,
+      "behavior": "ipcidr",
+      "decoded_rules": 11
+    },
+    {
+      "output": "ruleset/ru-inline-banned-domains.mrs",
+      "source": "sources/static/ru-inline-banned-domains.list",
+      "archive": "snapshots/ssc/ru-inline-banned-domains.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/ru-inline-banned-domains.mrs",
+      "fetched_at": "2026-11-10T00:45:06.116674+00:00",
+      "sha256": "782bf9353526186886cbd890b3193933ceac5c2678885a8a39ec84ba51d4786b",
+      "bytes": 1733,
+      "behavior": "domain",
+      "decoded_rules": 183
+    },
+    {
+      "output": "ruleset/ru-inline-banned.mrs",
+      "source": "sources/static/ru-inline-banned.list",
+      "archive": "snapshots/ssc/ru-inline-banned.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/ru-inline-banned.mrs",
+      "fetched_at": "2026-11-10T00:45:06.667281+00:00",
+      "sha256": "ff7e1f62b7bb9168d7c44700479866e06a8891c787064a6b97beea76de8e7622",
+      "bytes": 268,
+      "behavior": "domain",
+      "decoded_rules": 12
+    },
+    {
+      "output": "ruleset/ru-inline-domains.mrs",
+      "source": "sources/static/ru-inline-domains.list",
+      "archive": "snapshots/ssc/ru-inline-domains.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/ru-inline-domains.mrs",
+      "fetched_at": "2026-11-10T00:45:07.137650+00:00",
+      "sha256": "7666448eaf6784e112cd104bb475809d9f82d7b38b859f694626430ba6776aaa",
+      "bytes": 310,
+      "behavior": "domain",
+      "decoded_rules": 19
+    },
+    {
+      "output": "ruleset/discord-blgdrn-ip.mrs",
+      "source": "sources/static/discord-blgdrn-ip.list",
+      "archive": "snapshots/ssc/discord-blgdrn-ip.mrs",
+      "original_url": "https://ssc.magickvn.com/mrs/discord-ip.mrs",
+      "fetched_at": "2026-11-10T00:45:07.640137+00:00",
+      "sha256": "dfd513a672b3d7123f35fdc3e0106e109c8ec2d287d2e2bd4e10456876c44fec",
+      "bytes": 167,
+      "behavior": "ipcidr",
+      "decoded_rules": 14
+    }
+  ],
+  "mihomo_version": "v1.19.33",
+  "capture_run": "https://github.com/blagodaren/blgdrn-rule-sets/actions/runs/42730650242"
+}

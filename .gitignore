@@ -1,8 +1,16 @@
 # Временные файлы билда (генерируются и удаляются в workflow)
 *.lst
 *.txt
+!requirements.txt
 mihomo.deb
 
 # Исключение: нужные .list файлы в папках
 !ru-bundle/*.list
 !other/*.list
+
+# Local tools and Python caches
+.tools/
+.venv/
+__pycache__/
+*.pyc
+.local/

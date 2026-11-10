@@ -1,305 +1,353 @@
+# Providers from the current config. Upstream SSC is frozen; GitHub polling receives manual edits.
 rule-providers:
-
-  amazon-ip@ipcidr:
+  private-domains:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/geosite-private.mrs
+    interval: 2592000
+    path: ./ruleset/geosite-private.mrs
+    proxy: Select
+  private-ips:
     behavior: ipcidr
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/amazon-ip.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/geoip-private.mrs
+    interval: 2592000
+    path: ./ruleset/geoip-private.mrs
+    proxy: Select
+  ads-allow-ru:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ads-allow-ru.yaml
     interval: 86400
-    path: ./ruleset/amazon-ip.mrs
-
-  amazon@domain:
+    path: ./ruleset/ads-allow-ru.yaml
+    proxy: Select
+  whitelist:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/amazon-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/whitelist.mrs
     interval: 86400
-    path: ./ruleset/amazon-domain.mrs
-
-  aws-ip@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/aws-ip.mrs"
-    interval: 86400
-    path: ./ruleset/aws-ip.mrs
-
-  battlefield-ip@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/battlefield-ip.mrs"
-    interval: 86400
-    path: ./ruleset/battlefield-ip.mrs
-
-  category-ai@domain:
+    path: ./ruleset/whitelist.mrs
+    proxy: Select
+  win-spy:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/category-ai-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/win-spy.mrs
     interval: 86400
-    path: ./ruleset/category-ai-domain.mrs
-
-  cloudflare@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/cloudflare-domain.mrs"
-    interval: 86400
-    path: ./ruleset/cloudflare-domain.mrs
-
-  cloudflare@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/cloudflare-ip.mrs"
-    interval: 86400
-    path: ./ruleset/cloudflare-ip.mrs
-
-  discord-ip@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/discord-ip.mrs"
-    interval: 86400
-    path: ./ruleset/discord-ip.mrs
-
-  discord@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/discord-domain.mrs"
-    interval: 86400
-    path: ./ruleset/discord-domain.mrs
-
-  github-geosite:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/github-geosite.mrs"
-    interval: 86400
-    path: ./ruleset/github-geosite.mrs
-
-  google-deepmind@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/google-deepmind-domain.mrs"
-    interval: 86400
-    path: ./ruleset/google-deepmind-domain.mrs
-
-  google@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/google.mrs"
-    interval: 86400
-    path: ./ruleset/google.mrs
-
-  googlemeet@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/googlemeet-ip.mrs"
-    interval: 86400
-    path: ./ruleset/googlemeet-ip.mrs
-
-  inline-blocked-ips@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/inline-blocked-ips.mrs"
-    interval: 86400
-    path: ./ruleset/inline-blocked-ips.mrs
-
-  lookup-domains@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/lookup-domains.mrs"
-    interval: 86400
-    path: ./ruleset/lookup-domains.mrs
-
-  meta-ip@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/meta-ip.mrs"
-    interval: 86400
-    path: ./ruleset/meta-ip.mrs
-
-  meta@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/meta-domain.mrs"
-    interval: 86400
-    path: ./ruleset/meta-domain.mrs
-
-  music@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/music-domain.mrs"
-    interval: 86400
-    path: ./ruleset/music-domain.mrs
-
-  netflix-domains@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/netflix-domain.mrs"
-    interval: 86400
-    path: ./ruleset/netflix-domain.mrs
-
-  netflix-ip@ipcidr:
-    behavior: ipcidr
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/netflix-ip.mrs"
-    interval: 86400
-    path: ./ruleset/netflix-ip.mrs
-
+    path: ./ruleset/win-spy.mrs
+    proxy: Select
   oisd_big@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/oisd-big-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/oisd-big-domain.mrs
     interval: 86400
     path: ./ruleset/oisd-big-domain.mrs
-
-  reddit@domain:
+    proxy: Select
+  ads:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/reddit-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ads.mrs
     interval: 86400
-    path: ./ruleset/reddit-domain.mrs
-
-  refilter@domain:
+    path: ./ruleset/ads.mrs
+    proxy: Select
+  category-ru:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/refilter-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/category-ru.mrs
     interval: 86400
-    path: ./ruleset/refilter-domain.mrs
-
-  roblox-domains@domain:
+    path: ./ruleset/category-ru.mrs
+    proxy: Select
+  torrent-domains:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/roblox-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/torrent-domains.mrs
     interval: 86400
-    path: ./ruleset/roblox-domain.mrs
-
-  roblox-ip@ipcidr:
+    path: ./ruleset/torrent-domains.mrs
+    proxy: Select
+  torrent-trackers:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/torrent-trackers.mrs
+    interval: 86400
+    path: ./ruleset/torrent-trackers.mrs
+    proxy: Select
+  apple:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/apple.mrs
+    interval: 86400
+    path: ./ruleset/apple.mrs
+    proxy: Select
+  pinterest:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/pinterest.mrs
+    interval: 86400
+    path: ./ruleset/pinterest.mrs
+    proxy: Select
+  direct-ips:
     behavior: ipcidr
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/roblox-ip.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/direct-ips.mrs
     interval: 86400
-    path: ./ruleset/roblox-ip.mrs
-
-  ru-inline-banned-domains@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ru-inline-banned-domains.mrs"
-    interval: 86400
-    path: ./ruleset/ru-inline-banned-domains.mrs
-
-  ru-inline-banned@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ru-inline-banned.mrs"
-    interval: 86400
-    path: ./ruleset/ru-inline-banned.mrs
-
+    path: ./ruleset/direct-ips.mrs
+    proxy: Select
   ru-inline-domains@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ru-inline-domains.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ru-inline-domains.mrs
     interval: 86400
     path: ./ruleset/ru-inline-domains.mrs
-
-  spotify@domain:
+    proxy: Select
+  ru-inline-banned-domains@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/spotify-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ru-inline-banned-domains.mrs
     interval: 86400
-    path: ./ruleset/spotify-domain.mrs
-
-  telegram-ip:
+    path: ./ruleset/ru-inline-banned-domains.mrs
+    proxy: Select
+  ru-inline-banned@domain:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ru-inline-banned-keywords.yaml
+    interval: 86400
+    path: ./ruleset/ru-inline-banned-keywords.yaml
+    proxy: Select
+  inline-blocked-ips@ipcidr:
     behavior: ipcidr
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/telegram-ip.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/inline-blocked-ips.mrs
     interval: 86400
-    path: ./ruleset/telegram-ip.mrs
-
+    path: ./ruleset/inline-blocked-ips.mrs
+    proxy: Select
+  refilter@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/refilter-domain.mrs
+    interval: 86400
+    path: ./ruleset/refilter-domain.mrs
+    proxy: Select
+  lookup-domains@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/lookup-domains.mrs
+    interval: 86400
+    path: ./ruleset/lookup-domains.mrs
+    proxy: Select
+  category-ai@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/category-ai-domain.mrs
+    interval: 86400
+    path: ./ruleset/category-ai-domain.mrs
+    proxy: Select
+  ai-domains:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/ai-domains.mrs
+    interval: 86400
+    path: ./ruleset/ai-domains.mrs
+    proxy: Select
+  google-deepmind@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/google-deepmind-domain.mrs
+    interval: 86400
+    path: ./ruleset/google-deepmind-domain.mrs
+    proxy: Select
+  google@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/google.mrs
+    interval: 86400
+    path: ./ruleset/google-domain.mrs
+    proxy: Select
+  cloudflare@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/cloudflare-domain.mrs
+    interval: 86400
+    path: ./ruleset/cloudflare-domain.mrs
+    proxy: Select
+  cloudflare@ipcidr:
+    behavior: ipcidr
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/cloudflare-ip.mrs
+    interval: 86400
+    path: ./ruleset/cloudflare-ip.mrs
+    proxy: Select
+  amazon@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/amazon-domain.mrs
+    interval: 86400
+    path: ./ruleset/amazon-domain.mrs
+    proxy: Select
+  amazon-ip@ipcidr:
+    behavior: ipcidr
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/amazon-ip.mrs
+    interval: 86400
+    path: ./ruleset/amazon-ip.mrs
+    proxy: Select
+  aws-ip@ipcidr:
+    behavior: ipcidr
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/aws-ip.mrs
+    interval: 86400
+    path: ./ruleset/aws-ip.mrs
+    proxy: Select
   telegram@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/telegram-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/telegram-domain.mrs
     interval: 86400
     path: ./ruleset/telegram-domain.mrs
-
-  torrent-trackers@domain:
+    proxy: Select
+  telegram-extra-domains:
+    behavior: classical
+    type: http
+    format: yaml
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/telegram-extra-domains.yaml
+    interval: 86400
+    path: ./ruleset/telegram-extra-domains.yaml
+    proxy: Select
+  telegram-ips:
+    behavior: classical
+    type: http
+    format: yaml
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/telegram-ips.yaml
+    interval: 86400
+    path: ./ruleset/telegram-ips.yaml
+  discord@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/torrent-trackers.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/discord-domain.mrs
     interval: 86400
-    path: ./ruleset/torrent-trackers.mrs
-
-  torrent-websites@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/torrent-websites.mrs"
-    interval: 86400
-    path: ./ruleset/torrent-websites.mrs
-
-  twitch-ads@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/twitch-ads-domain.mrs"
-    interval: 86400
-    path: ./ruleset/twitch-ads-domain.mrs
-
-  twitch@domain:
-    behavior: domain
-    type: http
-    format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/twitch-domain.mrs"
-    interval: 86400
-    path: ./ruleset/twitch-domain.mrs
-
-  vodafone-ip@ipcidr:
+    path: ./ruleset/discord-domain.mrs
+    proxy: Select
+  discord-ip@ipcidr:
     behavior: ipcidr
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/vodafone-ip.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/discord-ip.mrs
     interval: 86400
-    path: ./ruleset/vodafone-ip.mrs
-
-  winspy-geosite:
+    path: ./ruleset/discord-ip.mrs
+    proxy: Select
+  discord-blgdrn-ip@ipcidr:
+    behavior: ipcidr
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/discord-blgdrn-ip.mrs
+    interval: 86400
+    path: ./ruleset/discord-blgdrn-ip.mrs
+    proxy: Select
+  meta@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/winspy-geosite.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/meta-domain.mrs
     interval: 86400
-    path: ./ruleset/winspy-geosite.mrs
-
+    path: ./ruleset/meta-domain.mrs
+    proxy: Select
+  meta-ip@ipcidr:
+    behavior: ipcidr
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/meta-ip.mrs
+    interval: 86400
+    path: ./ruleset/meta-ip.mrs
+    proxy: Select
   youtube@domain:
     behavior: domain
     type: http
     format: mrs
-    url: "https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/youtube-domain.mrs"
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/youtube-domain.mrs
     interval: 86400
     path: ./ruleset/youtube-domain.mrs
+    proxy: Select
+  twitch@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/twitch-domain.mrs
+    interval: 86400
+    path: ./ruleset/twitch-domain.mrs
+    proxy: Select
+  netflix-domains@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/netflix-domain.mrs
+    interval: 86400
+    path: ./ruleset/netflix-domain.mrs
+    proxy: Select
+  netflix-ip@ipcidr:
+    behavior: ipcidr
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/netflix-ip.mrs
+    interval: 86400
+    path: ./ruleset/netflix-ip.mrs
+    proxy: Select
+  spotify@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/spotify-domain.mrs
+    interval: 86400
+    path: ./ruleset/spotify-domain.mrs
+    proxy: Select
+  music@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/music-domain.mrs
+    interval: 86400
+    path: ./ruleset/music-domain.mrs
+    proxy: Select
+  tiktok-domains:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/tiktok-domains.mrs
+    interval: 86400
+    path: ./ruleset/tiktok-domains.mrs
+    proxy: Select
+  category-porn@domain:
+    behavior: domain
+    type: http
+    format: mrs
+    url: https://raw.githubusercontent.com/blagodaren/blgdrn-rule-sets/main/ruleset/category-porn.mrs
+    interval: 86400
+    path: ./ruleset/category-porn.mrs
+    proxy: Select
