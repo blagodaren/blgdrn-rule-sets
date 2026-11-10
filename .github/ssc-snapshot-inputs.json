@@ -1,0 +1,98 @@
+[
+  {
+    "output": "ruleset/aws-ip.mrs",
+    "behavior": "ipcidr",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/aws-ip.list",
+    "origin": "https://ssc.magickvn.com/mrs/aws-ip.mrs"
+  },
+  {
+    "output": "ruleset/battlefield-ip.mrs",
+    "behavior": "ipcidr",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/battlefield-ip.list",
+    "origin": "https://ssc.magickvn.com/mrs/battlefield-ip.mrs"
+  },
+  {
+    "output": "ruleset/googlemeet-ip.mrs",
+    "behavior": "ipcidr",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/googlemeet-ip.list",
+    "origin": "https://ssc.magickvn.com/mrs/googlemeet-ip.mrs"
+  },
+  {
+    "output": "ruleset/inline-blocked-ips.mrs",
+    "behavior": "ipcidr",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/inline-blocked-ips.list",
+    "origin": "https://ssc.magickvn.com/mrs/inline-blocked-ips.mrs"
+  },
+  {
+    "output": "ruleset/lookup-domains.mrs",
+    "behavior": "domain",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/lookup-domains.list",
+    "origin": "https://ssc.magickvn.com/mrs/lookup-domains.mrs"
+  },
+  {
+    "output": "ruleset/music-domain.mrs",
+    "behavior": "domain",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/music-domain.list",
+    "origin": "https://ssc.magickvn.com/mrs/music.mrs"
+  },
+  {
+    "output": "ruleset/roblox-domain.mrs",
+    "behavior": "domain",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/roblox-domain.list",
+    "origin": "https://ssc.magickvn.com/mrs/roblox-domains.mrs"
+  },
+  {
+    "output": "ruleset/roblox-ip.mrs",
+    "behavior": "ipcidr",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/roblox-ip.list",
+    "origin": "https://ssc.magickvn.com/mrs/roblox-ip.mrs"
+  },
+  {
+    "output": "ruleset/ru-inline-banned-domains.mrs",
+    "behavior": "domain",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/ru-inline-banned-domains.list",
+    "origin": "https://ssc.magickvn.com/mrs/ru-inline-banned-domains.mrs"
+  },
+  {
+    "output": "ruleset/ru-inline-banned.mrs",
+    "behavior": "domain",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/ru-inline-banned.list",
+    "origin": "https://ssc.magickvn.com/mrs/ru-inline-banned.mrs"
+  },
+  {
+    "output": "ruleset/ru-inline-domains.mrs",
+    "behavior": "domain",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/ru-inline-domains.list",
+    "origin": "https://ssc.magickvn.com/mrs/ru-inline-domains.mrs"
+  },
+  {
+    "output": "ruleset/discord-blgdrn-ip.mrs",
+    "behavior": "ipcidr",
+    "format": "mrs",
+    "mode": "static",
+    "source": "sources/static/discord-blgdrn-ip.list",
+    "origin": "https://ssc.magickvn.com/mrs/discord-ip.mrs"
+  }
+]

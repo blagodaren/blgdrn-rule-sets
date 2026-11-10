@@ -1,121 +1,51 @@
-name: Mirror MRS Rule Sets
+name: Snapshot SSC before retirement
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 4 * * *'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  mirror:
+  snapshot:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Pull latest
-        run: git pull
-
-      - name: Create ruleset dir
-        run: mkdir -p ruleset
-
-      # ── MetaCubeX / meta-rules-dat ──────────────────────────────────────────
-      - name: Download MetaCubeX geosite + geoip
+      - uses: actions/checkout@v4
+      - name: Download and hash current SSC files
         run: |
-          BASE_GS="https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite"
-          BASE_GI="https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip"
-
-          dl() { curl -fsSL "$1" -o "ruleset/$2" && echo "OK  $2" || echo "FAIL $2"; }
-
-          dl "$BASE_GS/amazon.mrs"            amazon-domain.mrs
-          dl "$BASE_GS/category-ai-%21cn.mrs" category-ai-domain.mrs
-          dl "$BASE_GS/cloudflare.mrs"        cloudflare-domain.mrs
-          dl "$BASE_GS/discord.mrs"           discord-domain.mrs
-          dl "$BASE_GS/github.mrs"            github-geosite.mrs
-          dl "$BASE_GS/google-deepmind.mrs"   google-deepmind-domain.mrs
-          dl "$BASE_GS/google.mrs"            google.mrs
-          dl "$BASE_GS/meta.mrs"              meta-domain.mrs
-          dl "$BASE_GS/netflix.mrs"           netflix-domain.mrs
-          dl "$BASE_GS/reddit.mrs"            reddit-domain.mrs
-          dl "$BASE_GS/spotify.mrs"           spotify-domain.mrs
-          dl "$BASE_GS/telegram.mrs"          telegram-domain.mrs
-          dl "$BASE_GS/twitch.mrs"            twitch-domain.mrs
-          dl "$BASE_GS/youtube.mrs"           youtube-domain.mrs
-
-          dl "$BASE_GI/netflix.mrs"           netflix-ip.mrs
-
-      # ── zxc-rv / zkeenip-rulesets (GitHub Releases) ─────────────────────────
-      - name: Download zkeenip-rulesets
-        run: |
-          BASE="https://github.com/zxc-rv/zkeenip-rulesets/releases/latest/download"
-
-          dl() { curl -fsSL -L "$1" -o "ruleset/$2" && echo "OK  $2" || echo "FAIL $2"; }
-
-          dl "$BASE/amazon@ipcidr.mrs"     amazon-ip.mrs
-          dl "$BASE/cloudflare@ipcidr.mrs" cloudflare-ip.mrs
-          dl "$BASE/meta@ipcidr.mrs"       meta-ip.mrs
-          dl "$BASE/telegram@ipcidr.mrs"   telegram-ip.mrs
-          dl "$BASE/vodafone@ipcidr.mrs"   vodafone-ip.mrs
-
-      # ── ssc.magickvn.com ────────────────────────────────────────────────────
-      - name: Download ssc.magickvn.com
-        run: |
-          BASE="https://ssc.magickvn.com/mrs"
-
-          dl() { curl -fsSL "$1" -o "ruleset/$2" && echo "OK  $2" || echo "FAIL $2"; }
-
-          dl "$BASE/aws-ip.mrs"                   aws-ip.mrs
-          dl "$BASE/battlefield-ip.mrs"           battlefield-ip.mrs
-          dl "$BASE/googlemeet-ip.mrs"            googlemeet-ip.mrs
-          dl "$BASE/inline-blocked-ips.mrs"       inline-blocked-ips.mrs
-          dl "$BASE/lookup-domains.mrs"           lookup-domains.mrs
-          dl "$BASE/music.mrs"                    music-domain.mrs
-          dl "$BASE/roblox-domains.mrs"           roblox-domain.mrs
-          dl "$BASE/roblox-ip.mrs"                roblox-ip.mrs
-          dl "$BASE/ru-inline-banned-domains.mrs"  ru-inline-banned-domains.mrs
-          dl "$BASE/ru-inline-banned.mrs"         ru-inline-banned.mrs
-          dl "$BASE/ru-inline-domains.mrs"        ru-inline-domains.mrs
-
-      # ── legiz-ru / mihomo-rule-sets ─────────────────────────────────────────
-      - name: Download legiz-ru rule-sets
-        run: |
-          BASE="https://raw.githubusercontent.com/legiz-ru/mihomo-rule-sets/main"
-
-          dl() { curl -fsSL "$1" -o "ruleset/$2" && echo "OK  $2" || echo "FAIL $2"; }
-
-          dl "$BASE/other/discord-voice-ip-list.mrs" discord-ip.mrs
-          dl "$BASE/oisd/big.mrs"                    oisd-big-domain.mrs
-          dl "$BASE/re-filter/domain-rule.mrs"       refilter-domain.mrs
-          dl "$BASE/other/torrent-trackers.mrs"      torrent-trackers.mrs
-          dl "$BASE/other/torrent-websites.mrs"      torrent-websites.mrs
-
-      # ── hydraponique / roscomvpn-geosite ────────────────────────────────────
-      - name: Download roscomvpn-geosite
-        run: |
-          dl() { curl -fsSL -L "$1" -o "ruleset/$2" && echo "OK  $2" || echo "FAIL $2"; }
-
-          dl "https://cdn.jsdelivr.net/gh/hydraponique/roscomvpn-geosite/release/mihomo/twitch-ads.mrs" twitch-ads-domain.mrs
-          dl "https://github.com/hydraponique/roscomvpn-geosite/raw/master/release/mihomo/win-spy.mrs"  winspy-geosite.mrs
-
-      # ── Проверка: сколько файлов скачалось ──────────────────────────────────
-      - name: Verify downloads
-        run: |
-          echo "=== Downloaded files ==="
-          ls -lh ruleset/
-          echo ""
-          count=$(ls ruleset/*.mrs 2>/dev/null | wc -l)
-          echo "Total: ${count} / 38 MRS files"
-          [ "$count" -ge 30 ] || { echo "Too few files (${count}), aborting commit"; exit 1; }
-
-      # ── Коммит ──────────────────────────────────────────────────────────────
-      - name: Commit and push
-        run: |
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git config user.name  "github-actions[bot]"
-          git add ruleset/
-          DATE=$(TZ=Europe/Moscow date +'%Y-%m-%dT%H:%M:%S')
-          git commit -m "Mirror rule-sets ${DATE}" || echo "Nothing to commit"
-          git push
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import subprocess
+          from datetime import datetime, timezone
+          from pathlib import Path
+          entries = json.loads(Path('.github/ssc-snapshot-inputs.json').read_text())
+          target = Path('snapshot')
+          target.mkdir()
+          snapshots = []
+          for entry in entries:
+              destination = target / Path(entry['output']).name
+              subprocess.run(['curl', '--fail', '--show-error', '--silent', '--location',
+                              '--retry', '3', '--retry-all-errors', '--connect-timeout', '15',
+                              '--max-time', '60', entry['origin'], '--output', str(destination)], check=True)
+              data = destination.read_bytes()
+              if not data:
+                  raise ValueError('Empty response: ' + entry['origin'])
+              snapshots.append({
+                  'output': entry['output'], 'source': entry['source'],
+                  'archive': 'snapshots/ssc/' + destination.name,
+                  'original_url': entry['origin'],
+                  'fetched_at': datetime.now(timezone.utc).isoformat(),
+                  'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data),
+                  'behavior': entry['behavior'],
+              })
+              print('Saved', destination.name, len(data), 'bytes', flush=True)
+          (target / 'manifest.json').write_text(json.dumps({'snapshots': snapshots}, indent=2) + '\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ssc-current-snapshot
+          path: snapshot/
+          if-no-files-found: error
+          retention-days: 30
