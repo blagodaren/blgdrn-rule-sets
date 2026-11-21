@@ -1,13 +1,25 @@
 # Static source: edit here; GitHub Actions rebuilds the MRS.
 # JPLAY / ESOTERIC additions: see music-domain-sources.md for evidence and scope.
++.4dev.com
 +.airable.io
++.antarestech.com
++.arturia.com
++.arturia.net
 +.bluos.net
++.digitaloceanspaces.com
 +.esoteric.jp
++.freakshowindustries.com
 +.highresaudio.com
 +.iheart.com
++.ilok.com
++.ilokcloud.com
++.inference.wisprflow.com
 +.jplay.app
 +.jplay.eu
++.liquidsonics.com
++.model-v31pl413.grpc.api.baseten.co
 +.nadelectronics.com
++.paceap.com
 +.qobuz-cdn.net
 +.qobuz-hd.akamaihd.net
 +.qobuz-hifi.akamaized.net
@@ -22,6 +34,9 @@
 +.qobuzplayer.com
 +.radioparadise.com
 +.radiotime.com
++.siliconsense.club
++.sonible.com
++.soyuzmicrophones.com
 +.streaming-qobuz-com.akamaized.net
 +.streaming-qobuz-sec.akamaized.net
 +.streaming-qobuz-std.akamaized.net
@@ -29,4 +44,6 @@
 +.tidal.com
 +.tidalhifi.com
 +.tunein.com
++.uaudio.com
 +.wimpmusic.com
++.y2mate.gs
